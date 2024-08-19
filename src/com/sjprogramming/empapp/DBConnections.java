@@ -4,15 +4,14 @@ import java.sql.Driver;
 import java.sql.DriverManager;
 
 public class DBConnections {
-    static Connection con;
+    static Connection con = null;
     public static Connection createDBConnection()
     {
         try {
             //load driver
-            Class.forName("com.msql.jdbc.Driver");
-
+            Class.forName("com.mysql.jdbc.Driver");
             //get connection
-            String url= "jdbc:mysql://localhost:3306/employeeDB";
+            String url = "jdbc:mysql://localhost:3306/employeeDB?useSSL=false&serverTimezone=UTC";
             String username = "root";
             String password = "root_pass_1234";
             con= DriverManager.getConnection(url,username,password);
