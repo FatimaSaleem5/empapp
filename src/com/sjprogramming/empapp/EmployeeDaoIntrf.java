@@ -11,6 +11,6 @@ public interface EmployeeDaoIntrf {
     //update employee
     public void updateEmployee(int id, String name);
     //delete employee
-    public void deleteEmployee();
+    public void deleteEmployee(int id);
 
 }

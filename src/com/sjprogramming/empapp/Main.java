@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args)
     {
+        int id;
+        String name;
         EmployeeDaoIntrf dao = new EmployeeDaoImpl();
         System.out.print("Welcome to Employee Management System \n");
         Scanner sc = new Scanner(System.in);
@@ -19,9 +21,9 @@ public class Main {
                 case 1:
                     Employee emp = new Employee();
                     System.out.println("Enter id = ");
-                    int id = sc.nextInt();
+                    id = sc.nextInt();
                     System.out.println("Enter name of the employee ");
-                    String name = sc.next();
+                    name = sc.next();
                     System.out.println("Enter salary =  ");
                     double salary = sc.nextDouble();
                     System.out.println("Enter age =  ");
@@ -32,7 +34,31 @@ public class Main {
                     emp.setAge(age);
                     dao.createEmployee(emp);
                     break;
+
                 case 2:
+                    dao.showAllEmployee();
+                    break;
+
+                case 3:
+                    System.out.println("Enter id to show the employee's details");
+                    int empid = sc.nextInt();
+                    dao.showEmployeeBasedOnID(empid);
+                    break;
+
+                case 4:
+                    System.out.println("Update Employee's detail ");
+                    System.out.println("Enter employee's id to update the details = ");
+                    int empid1 = sc.nextInt();
+                    System.out.println("Enter employee's new name = ");
+                    name = sc.next();
+                    dao.updateEmployee(empid1, name);
+                    break;
+                case 5:
+                    System.out.println("Enter the id to delete = ");
+                    id= sc.nextInt();
+                    dao.deleteEmployee(id);
+                    break;
+                case 6:
                     System.out.println("Thank you for using our application");
                     System.exit(0);
                 default:
